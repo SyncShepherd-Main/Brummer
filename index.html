@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Re-Elect Scott Brummer – Lewis County Commissioner District 3</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Barlow+Condensed:wght@300;400;600;700;800&display=swap');
+
+/* ── TOKENS ── */
+:root {
+  --navy:       #0a1628;
+  --deep-blue:  #0d2244;
+  --mid-blue:   #1a3a6b;
+  --steel:      #162d50;
+  --accent-red: #c8232a;
+  --red-dark:   #a01820;
+  --accent-gold:#c9a84c;
+  --light-gold: #f0d890;
+  --off-white:  #f5f2eb;
+  --cream:      #ede9de;
+  --text-body:  #2a3a50;
+  --text-muted: #8a9bb0;
+  --white:      #ffffff;
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ── TYPOGRAPHY HELPERS ── */
+.label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  display: block;
+}
+.label.red   { color: var(--accent-red); }
+.label.muted { color: var(--text-muted); }
+
+.divider {
+  width: 56px; height: 3px;
+  background: linear-gradient(90deg, var(--accent-red), var(--accent-gold));
+  margin: 18px 0 26px;
+}
+.divider.center { margin-left: auto; margin-right: auto; }
+
+/* ── BUTTONS ── */
+.btn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 14px 32px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.1s;
+  line-height: 1;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-red  { background: var(--accent-red);  color: white; border-color: var(--accent-red); }
+.btn-red:hover  { background: transparent; color: var(--accent-red); }
+.btn-gold { background: transparent; color: var(--accent-gold); border-color: var(--accent-gold); }
+.btn-gold:hover { background: var(--accent-gold); color: var(--navy); }
+.btn-white { background: white; color: var(--navy); border-color: white; }
+.btn-white:hover { background: transparent; color: white; }
+.btn-lg { padding: 18px 44px; font-size: 16px; }
+
+/* ── NAV ── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 72px;
+  background: rgba(10,22,40,0.97);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+.nav-logo { display: flex; align-items: center; gap: 14px; }
+.nav-badge {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--accent-red);
+  border: 2px solid var(--accent-gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 13px;
+  letter-spacing: 0.05em; color: white; flex-shrink: 0;
+}
+.nav-name-block strong {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 17px;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  display: block; color: white;
+}
+.nav-name-block span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.45); text-transform: uppercase;
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 13px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: white; border-color: var(--accent-gold); }
+.nav-cta {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 13px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--accent-red); color: white;
+  padding: 10px 22px;
+  border: 2px solid var(--accent-red);
+  transition: background 0.2s, color 0.2s;
+}
+.nav-cta:hover { background: transparent; color: var(--accent-red); }
+
+/* ── INNER PAGE HERO BANNER ── */
+.page-hero {
+  padding: 140px 80px 72px;
+  background: var(--deep-blue);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-red), var(--accent-gold));
+}
+.page-hero-bg-text {
+  position: absolute;
+  right: -20px; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 220px;
+  line-height: 1;
+  color: rgba(255,255,255,0.03);
+  pointer-events: none;
+  white-space: nowrap;
+  user-select: none;
+}
+.page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(44px, 5vw, 72px);
+  line-height: 1.0;
+  margin-top: 14px;
+}
+.page-hero .subtitle {
+  font-size: 18px;
+  color: rgba(255,255,255,0.65);
+  margin-top: 16px;
+  max-width: 560px;
+  line-height: 1.65;
+}
+
+/* ── SECTION WRAPPERS ── */
+.section-light {
+  background: var(--off-white);
+  color: var(--navy);
+  padding: 88px 80px;
+}
+.section-dark {
+  background: var(--navy);
+  padding: 88px 80px;
+}
+.section-steel {
+  background: var(--deep-blue);
+  padding: 88px 80px;
+}
+.section-red {
+  background: var(--accent-red);
+  padding: 72px 80px;
+}
+.inner { max-width: 1100px; margin: 0 auto; }
+
+/* ── SECTION HEADERS ── */
+.section-header { margin-bottom: 56px; }
+.section-header.center { text-align: center; }
+.section-header.center .divider { margin-left: auto; margin-right: auto; }
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(32px, 3.5vw, 52px);
+  line-height: 1.08;
+}
+
+/* ── TICKER ── */
+.ticker-band {
+  background: var(--accent-red);
+  overflow: hidden;
+  padding: 0;
+}
+.ticker-track {
+  display: flex;
+  animation: ticker 24s linear infinite;
+  white-space: nowrap;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker-item {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 14px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 13px 36px;
+  border-right: 1px solid rgba(255,255,255,0.25);
+  flex-shrink: 0;
+}
+.ticker-item .dot { color: rgba(255,255,255,0.45); margin-right: 12px; }
+
+/* ── CONTACT / FOOTER STRIP ── */
+.contact-strip {
+  background: var(--steel);
+  border-top: 1px solid rgba(201,168,76,0.18);
+  padding: 36px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  flex-wrap: wrap;
+}
+.contact-item { display: flex; align-items: center; gap: 14px; }
+.contact-icon {
+  width: 44px; height: 44px;
+  border: 1px solid rgba(201,168,76,0.35);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.contact-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--text-muted);
+}
+.contact-value {
+  font-size: 16px; color: white; display: block;
+  transition: color 0.2s;
+}
+.contact-value:hover { color: var(--accent-gold); }
+
+footer {
+  background: #060e1b;
+  padding: 28px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-copy {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.3);
+}
+.footer-links { display: flex; gap: 16px; align-items: center; }
+.footer-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  padding: 6px 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: all 0.2s;
+}
+.footer-links a:hover { color: var(--accent-gold); border-color: var(--accent-gold); }
+
+/* ── FORMS ── */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-grid .full { grid-column: 1 / -1; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 12px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-muted);
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  padding: 12px 16px;
+  font-family: 'Source Serif 4', serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+  border-radius: 0;
+  appearance: none;
+}
+.form-group input:focus,
+.form-group textarea:focus { border-color: var(--accent-gold); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+/* light form variant */
+.form-light .form-group input,
+.form-light .form-group textarea,
+.form-light .form-group select {
+  background: white;
+  border-color: #d0ccc0;
+  color: var(--navy);
+}
+.form-light .form-group label { color: var(--text-body); }
+.form-light .form-group input:focus,
+.form-light .form-group textarea:focus { border-color: var(--mid-blue); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.anim { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+.anim-1 { animation-delay: 0.1s; }
+.anim-2 { animation-delay: 0.25s; }
+.anim-3 { animation-delay: 0.4s; }
+.anim-4 { animation-delay: 0.55s; }
+.anim-5 { animation-delay: 0.7s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .page-hero, .section-light, .section-dark, .section-steel, .section-red { padding-left: 24px; padding-right: 24px; }
+  .contact-strip { gap: 28px; padding: 32px 24px; }
+  footer { padding: 24px; flex-direction: column; text-align: center; }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-grid .full { grid-column: 1; }
+}
+</style>
+<style>
+/* ── HOME-ONLY STYLES ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+
+.hero-left {
+  background: var(--deep-blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 140px 64px 80px;
+  position: relative;
+  z-index: 2;
+}
+.hero-left::after {
+  content: '';
+  position: absolute;
+  top: 0; right: -56px;
+  width: 112px; height: 100%;
+  background: var(--deep-blue);
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
+  z-index: 3;
+}
+
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(56px, 6.5vw, 96px);
+  line-height: 0.93;
+  margin-top: 16px;
+}
+.hero-name em { font-style: normal; color: var(--accent-gold); }
+
+.hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400; font-size: 19px;
+  letter-spacing: 0.13em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 28px;
+}
+.hero-quote {
+  font-size: 17px; line-height: 1.65;
+  color: rgba(255,255,255,0.78);
+  font-style: italic;
+  max-width: 400px;
+  margin-bottom: 44px;
+  border-left: 3px solid var(--accent-gold);
+  padding-left: 20px;
+}
+.hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+
+.hero-right {
+  position: relative;
+  background: linear-gradient(145deg, #0d2244, #1a3a6b);
+  overflow: hidden;
+}
+.hero-stars {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  display: flex; align-items: flex-start;
+  justify-content: flex-end;
+  padding: 120px 40px 0;
+  font-size: 20px;
+  color: rgba(201,168,76,0.12);
+  letter-spacing: 14px;
+  line-height: 2.2;
+}
+.district-badge {
+  position: absolute;
+  top: 120px; right: 44px;
+  width: 106px; height: 106px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-gold);
+  background: var(--navy);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+}
+.district-badge .big {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 34px;
+  color: var(--accent-gold); line-height: 1;
+}
+.district-badge .sm {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px; letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5); margin-top: 3px;
+}
+.photo-slot {
+  position: absolute;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 72%; max-width: 400px;
+  aspect-ratio: 3/4;
+  background: linear-gradient(180deg, rgba(26,58,107,0.3) 0%, rgba(13,34,68,0.85) 100%);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+}
+.photo-slot-label {
+  text-align: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  border: 1px dashed rgba(255,255,255,0.18);
+  padding: 16px 20px;
+}
+.hero-stripe {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 55%; height: 6px;
+  background: linear-gradient(90deg, transparent, var(--accent-red));
+}
+
+/* ── ABOUT STRIP ── */
+.about-strip {
+  background: var(--off-white);
+  color: var(--navy);
+  padding: 88px 80px;
+}
+.about-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: 72px; align-items: start;
+}
+.about-grid .label.red { color: var(--accent-red); }
+.about-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(32px, 3.5vw, 52px);
+  line-height: 1.05; margin-top: 12px;
+  color: var(--navy);
+}
+.about-body {
+  font-size: 16px; line-height: 1.8;
+  color: var(--text-body); margin-top: 20px;
+}
+.about-body p + p { margin-top: 16px; }
+.read-more {
+  display: inline-block;
+  margin-top: 28px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 13px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--accent-red);
+  border-bottom: 2px solid var(--accent-red);
+  padding-bottom: 3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.read-more:hover { color: var(--red-dark); border-color: var(--red-dark); }
+
+.stat-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.stat-card {
+  background: var(--navy); color: white;
+  padding: 28px 22px;
+  position: relative; overflow: hidden;
+}
+.stat-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--accent-gold);
+}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900; font-size: 46px;
+  color: var(--accent-gold); line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-lbl {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55); line-height: 1.45;
+}
+
+/* ── ISSUES / PRIORITIES ── */
+.priorities-section {
+  background: var(--navy);
+  background-image:
+    linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  padding: 88px 80px;
+}
+.priorities-inner { max-width: 1100px; margin: 0 auto; }
+.p-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 2px; margin-top: 56px;
+}
+.p-card {
+  background: var(--deep-blue);
+  padding: 44px 32px;
+  position: relative; overflow: hidden;
+  transition: background 0.25s;
+}
+.p-card:hover { background: #162e52; }
+.p-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--accent-red);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s;
+}
+.p-card:hover::after { transform: scaleX(1); }
+.p-icon { font-size: 34px; margin-bottom: 18px; }
+.p-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 18px;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--accent-gold); margin-bottom: 12px;
+}
+.p-body {
+  font-size: 14px; line-height: 1.72;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  background: var(--accent-red);
+  padding: 72px 80px;
+  text-align: center;
+}
+.pull-quote blockquote {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; font-style: italic;
+  font-size: clamp(22px, 2.8vw, 38px);
+  line-height: 1.42;
+  max-width: 860px; margin: 0 auto 20px;
+}
+.pull-quote cite {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-style: normal; font-weight: 600;
+  font-size: 13px; letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ── DONATE CTA ── */
+.donate-cta {
+  background: var(--navy);
+  padding: 96px 80px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.donate-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(26,58,107,0.55) 0%, transparent 70%);
+  pointer-events: none;
+}
+.donate-inner { position: relative; z-index: 1; max-width: 660px; margin: 0 auto; }
+.donate-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(40px, 5vw, 68px);
+  line-height: 1; margin-top: 12px;
+}
+.donate-title span { color: var(--accent-gold); }
+.donate-body {
+  font-size: 17px; line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+  margin: 20px 0 40px;
+}
+.donate-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { height: 50vw; min-height: 280px; }
+  .hero-left { padding: 100px 24px 48px; }
+  .hero-left::after { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .p-grid { grid-template-columns: 1fr; }
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .pull-quote, .donate-cta { padding-left: 24px; padding-right: 24px; }
+  .priorities-section { padding-left: 24px; padding-right: 24px; }
+  .about-strip { padding-left: 24px; padding-right: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-badge">SB</div>
+    <div class="nav-name-block">
+      <strong>Scott Brummer</strong>
+      <span>Lewis County Commissioner · District 3</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="endorsements.html">Endorsements</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html#donate" class="nav-cta">Donate</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="label anim anim-1">Re-Election Campaign 2026 · Lewis County, WA</span>
+    <h1 class="hero-name anim anim-2">Scott<br><em>Brummer</em></h1>
+    <p class="hero-title anim anim-3">County Commissioner · District 3</p>
+    <div class="divider anim anim-3"></div>
+    <p class="hero-quote anim anim-4">"A Bold Leader. A Strong Voice. Putting the People of District 3 First."</p>
+    <div class="hero-actions anim anim-5">
+      <a href="contact.html#donate" class="btn btn-red btn-lg">Donate Today</a>
+      <a href="about.html" class="btn btn-gold btn-lg">Learn More</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stars" aria-hidden="true">
+      ★ ★ ★ ★ ★<br>★ ★ ★ ★<br>★ ★ ★ ★ ★<br>★ ★ ★ ★<br>★ ★ ★ ★ ★
+    </div>
+    <div class="district-badge">
+      <div class="big">D3</div>
+      <div class="sm">Lewis County<br>WA</div>
+    </div>
+    <div class="photo-slot">
+      <div class="photo-slot-label">Candidate Photo<br>Replaces This Area</div>
+    </div>
+    <div class="hero-stripe"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-band" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="ticker-item"><span class="dot">✦</span>Fiscal Responsibility</div>
+    <div class="ticker-item"><span class="dot">✦</span>Public Safety</div>
+    <div class="ticker-item"><span class="dot">✦</span>Flood Control</div>
+    <div class="ticker-item"><span class="dot">✦</span>Veterans Services</div>
+    <div class="ticker-item"><span class="dot">✦</span>Agriculture &amp; Timber</div>
+    <div class="ticker-item"><span class="dot">✦</span>Emergency Services</div>
+    <div class="ticker-item"><span class="dot">✦</span>Economic Growth</div>
+    <div class="ticker-item"><span class="dot">✦</span>Transparent Government</div>
+    <div class="ticker-item"><span class="dot">✦</span>Housing &amp; Development</div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-item"><span class="dot">✦</span>Fiscal Responsibility</div>
+    <div class="ticker-item"><span class="dot">✦</span>Public Safety</div>
+    <div class="ticker-item"><span class="dot">✦</span>Flood Control</div>
+    <div class="ticker-item"><span class="dot">✦</span>Veterans Services</div>
+    <div class="ticker-item"><span class="dot">✦</span>Agriculture &amp; Timber</div>
+    <div class="ticker-item"><span class="dot">✦</span>Emergency Services</div>
+    <div class="ticker-item"><span class="dot">✦</span>Economic Growth</div>
+    <div class="ticker-item"><span class="dot">✦</span>Transparent Government</div>
+    <div class="ticker-item"><span class="dot">✦</span>Housing &amp; Development</div>
+  </div>
+</div>
+
+<!-- ABOUT STRIP -->
+<section class="about-strip">
+  <div class="about-grid">
+    <div>
+      <span class="label red">About Scott</span>
+      <h2 class="about-title">A Neighbor, Not Just a Politician</h2>
+      <div class="divider"></div>
+      <div class="about-body">
+        <p>Lewis County has been Scott's home for over 30 years. A biologist, farmer, small business owner, and Senior Pastor of a church in Ethel, Scott has deep roots in this community and a deep commitment to it.</p>
+        <p>As your District 3 Commissioner, Scott has worked hard to represent his neighbors with core values of honesty, integrity, and transparency — keeping county spending in check, championing local control, and standing up against state overreach that hurts Lewis County families.</p>
+      </div>
+      <a href="about.html" class="read-more">Full Story & Platform →</a>
+    </div>
+    <div>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-num">30+</div>
+          <div class="stat-lbl">Years a Lewis County Resident</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">2×</div>
+          <div class="stat-lbl">Chair, Board of County Commissioners</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">911</div>
+          <div class="stat-lbl">Led Voter-Approved Emergency Services Tax</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">6+</div>
+          <div class="stat-lbl">Boards &amp; Commissions Led</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIORITIES -->
+<section class="priorities-section">
+  <div class="priorities-inner">
+    <div class="section-header center">
+      <span class="label">What Scott Stands For</span>
+      <h2 class="section-title" style="color:white; margin-top:12px;">Priorities for District 3</h2>
+      <div class="divider center"></div>
+    </div>
+    <div class="p-grid">
+      <div class="p-card">
+        <div class="p-icon">💰</div>
+        <div class="p-title">Fiscal Responsibility</div>
+        <p class="p-body">Keeping county levy rates down despite massive inflation. Scott has held the line on spending while seeking business growth that generates revenue without raising property taxes.</p>
+      </div>
+      <div class="p-card">
+        <div class="p-icon">🚨</div>
+        <div class="p-title">Public Safety</div>
+        <p class="p-body">Unwavering support for Law Enforcement and Fire Districts. Scott led the successful 911 sales tax measure that transformed emergency services countywide.</p>
+      </div>
+      <div class="p-card">
+        <div class="p-icon">🌊</div>
+        <div class="p-title">Flood Control</div>
+        <p class="p-body">Chairing both the Chehalis and Cowlitz Basin Flood Control Districts, Scott is actively implementing long-term flood-reduction solutions that protect homes, farms, and businesses.</p>
+      </div>
+      <div class="p-card">
+        <div class="p-icon">🌲</div>
+        <div class="p-title">Agriculture &amp; Timber</div>
+        <p class="p-body">A voice for farmers and timber owners — fighting to reduce burdensome regulations, increase timber harvests, and keep Lewis County's vital resource economy strong.</p>
+      </div>
+      <div class="p-card">
+        <div class="p-icon">🏘️</div>
+        <div class="p-title">Housing &amp; Development</div>
+        <p class="p-body">Pushing back against excessive state mandates to protect local control over land use, encourage affordable housing, reduce homelessness, and grow our local economy.</p>
+      </div>
+      <div class="p-card">
+        <div class="p-icon">🎖️</div>
+        <div class="p-title">Veterans Services</div>
+        <p class="p-body">Leading the Lewis County Veterans Advisory Board to ensure those who served our nation receive the benefits, respect, and recognition they have rightfully earned.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="pull-quote">
+  <blockquote>"I'm not a politician; I am your neighbor. I believe our elected representatives must hold firm to our Constitution and the founding principles of our Nation."</blockquote>
+  <cite>— Scott Brummer, Lewis County Commissioner, District 3</cite>
+</section>
+
+<!-- DONATE CTA -->
+<section class="donate-cta" id="donate">
+  <div class="donate-inner">
+    <span class="label" style="text-align:center; display:block;">Support the Campaign</span>
+    <h2 class="donate-title">Stand With <span>Scott</span></h2>
+    <p class="donate-body">Your support keeps honest, effective local government strong. Help re-elect the leader who has consistently put District 3 first.</p>
+    <div class="donate-actions">
+      <a href="contact.html#donate" class="btn btn-red btn-lg">Donate Now</a>
+      <a href="contact.html#volunteer" class="btn btn-gold btn-lg">Volunteer</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<div class="contact-strip">
+  <div class="contact-item">
+    <div class="contact-icon">📞</div>
+    <div>
+      <span class="contact-label">Phone</span>
+      <a href="tel:3605202847" class="contact-value">360-520-2847</a>
+    </div>
+  </div>
+  <div class="contact-item">
+    <div class="contact-icon">✉️</div>
+    <div>
+      <span class="contact-label">Email</span>
+      <a href="mailto:info@scottbrummer.com" class="contact-value">info@scottbrummer.com</a>
+    </div>
+  </div>
+  <div class="contact-item">
+    <div class="contact-icon">📘</div>
+    <div>
+      <span class="contact-label">Facebook</span>
+      <a href="https://facebook.com/ElectScottBrummer" target="_blank" class="contact-value">ElectScottBrummer</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p class="footer-copy">© 2026 Re-Elect Scott Brummer – Lewis County Commissioner, District 3. Paid for by the Committee to Re-Elect Scott Brummer.</p>
+  <div class="footer-links">
+    <a href="https://facebook.com/ElectScottBrummer" target="_blank">Facebook</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html#donate">Donate</a>
+  </div>
+</footer>
+
+</body>
+</html>
